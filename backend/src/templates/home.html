@@ -1,0 +1,137 @@
+
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PetOkra — Your pet's world</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header class="navbar">
+    <a class="brand" href="/">🐾 PetOkra</a>
+
+
+
+{% include "partials/language_selector.html" %}
+
+
+</header>
+
+<main>
+    <section class="hero">
+        <p class="eyebrow">{% trans "FOR OUR FURRY FRIENDS" %}</p>
+
+        <h1>
+            {% blocktrans %}
+                Their world,<br>made brighter by your love.
+            {% endblocktrans %}
+        </h1>
+
+        <p class="intro">
+            {% trans "Keep your pets' profiles in one place. Organize their details and give them better care." %}
+        </p>
+
+        {% if user.is_authenticated %}
+            <a class="primary-button" href="/panelim/">
+                {% trans "View my pets" %}
+            </a>
+        {% else %}
+            <a class="primary-button" href="/register/">
+                {% trans "Create your pet family" %}
+            </a>
+        {% endif %}
+    </section>
+
+    <section class="pets-section" id="pets">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">
+                    {% trans "THE PAWSOME MEMBERS OF YOUR FAMILY" %}
+                </p>
+                <h2>{% trans "My pets" %}</h2>
+            </div>
+
+            {% if user.is_authenticated %}
+                <span class="pet-count">
+                    {% blocktrans count count=pets|length %}
+                        {{ count }} profile
+                    {% plural %}
+                        {{ count }} profiles
+                    {% endblocktrans %}
+                </span>
+            {% endif %}
+        </div>
+
+        {% if user.is_authenticated %}
+            {% if pets %}
+                <div class="pet-grid">
+                    {% for pet in pets %}
+                        <article class="pet-card">
+                            <div class="pet-avatar">
+                                {% if pet.species == "cat" %}
+                                    🐱
+                                {% elif pet.species == "dog" %}
+                                    🐶
+                                {% elif pet.species == "bird" %}
+                                    🐦
+                                {% else %}
+                                    🐾
+                                {% endif %}
+                            </div>
+
+                            <h3>{{ pet.name }}</h3>
+                            <p>{{ pet.get_species_display }}</p>
+
+                            {% if pet.breed %}
+                                <p class="muted">{{ pet.breed }}</p>
+                            {% endif %}
+                        </article>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="login-card">
+                    <span class="login-icon">🐾</span>
+
+                    <h3>{% trans "Add your first pet" %}</h3>
+
+                    <p>
+                        {% trans "Create a pet profile and keep all their details in one place." %}
+                    </p>
+
+                    <a class="primary-button" href="/panelim/">
+                        {% trans "Add a pet" %}
+                    </a>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="login-card">
+                <span class="login-icon">🐾</span>
+
+                <h3>{% trans "Bring your furry family together" %}</h3>
+
+                <p>
+                    {% trans "Create your free account and keep your pets' profiles in one place." %}
+                </p>
+
+                <a class="primary-button" href="/register/">
+                    {% trans "Sign up for free" %}
+                </a>
+
+                <p>
+                    {% trans "Already have an account?" %}
+                    <a href="/login/">{% trans "Log in" %}</a>
+                </p>
+            </div>
+        {% endif %}
+    </section>
+</main>
+
+<footer>
+    {% trans "PetOkra · Made with love for every paw." %}
+</footer>
+
+</body>
+</html>

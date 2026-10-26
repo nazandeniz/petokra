@@ -1,0 +1,223 @@
+
+# Turkish translations for PetOkra.
+msgid ""
+msgstr ""
+"Project-Id-Version: PetOkra 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-26 21:11+0000\n"
+"PO-Revision-Date: 2026-10-27 00:00+0300\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/config/views.py
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Confirm password"
+msgstr "Şifreyi tekrar gir"
+
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "The passwords do not match."
+msgstr "Şifreler eşleşmiyor."
+
+msgid "Pet name"
+msgstr "Hayvanın adı"
+
+msgid "Species"
+msgstr "Hayvan türü"
+
+msgid "Breed"
+msgstr "Irk"
+
+msgid "Birth date"
+msgstr "Doğum tarihi"
+
+msgid "Photo URL"
+msgstr "Fotoğraf bağlantısı"
+
+msgid "Notes"
+msgstr "Notlar"
+
+#: src/pets/models.py
+msgid "Cat"
+msgstr "Kedi"
+
+msgid "Dog"
+msgstr "Köpek"
+
+msgid "Bird"
+msgstr "Kuş"
+
+msgid "Other"
+msgstr "Diğer"
+
+msgid "Name"
+msgstr "İsim"
+
+msgid "Created at"
+msgstr "Oluşturulma tarihi"
+
+msgid "Pet"
+msgstr "Hayvan"
+
+msgid "Pets"
+msgstr "Hayvanlar"
+
+#: src/templates/dashboard.html
+msgid "My Pets"
+msgstr "Hayvanlarım"
+
+msgid "Log out"
+msgstr "Çıkış yap"
+
+msgid "YOUR PERSONAL DASHBOARD"
+msgstr "KİŞİSEL PANELİN"
+
+#, python-format
+msgid ""
+"\n"
+"                Hello, %(username)s!\n"
+"            "
+msgstr ""
+"\n"
+"                Merhaba, %(username)s!\n"
+"            "
+
+msgid "Your pets' profiles are here."
+msgstr "Patili dostlarının profilleri burada."
+
+msgid "Add a new pet"
+msgstr "Yeni hayvan ekle"
+
+msgid "Enter your pet's details below."
+msgstr "Patili dostunun bilgilerini aşağıya gir."
+
+msgid "Save pet"
+msgstr "Hayvanı kaydet"
+
+msgid "Back to home"
+msgstr "Ana sayfaya dön"
+
+msgid "You haven't added a pet profile yet."
+msgstr "Henüz bir hayvan profili eklemedin."
+
+#: src/templates/home.html
+msgid "FOR OUR FURRY FRIENDS"
+msgstr "PATİLİ DOSTLARIMIZ İÇİN"
+
+msgid ""
+"\n"
+"                Their world,<br>made brighter by your love.\n"
+"            "
+msgstr ""
+"\n"
+"                Onların dünyası,<br>senin sevginle güzel.\n"
+"            "
+
+msgid ""
+"Keep your pets' profiles in one place. Organize their details and give them "
+"better care."
+msgstr ""
+"Hayvan profillerini tek yerde tut. Bilgilerini düzenle ve onlara daha iyi "
+"bak."
+
+msgid "View my pets"
+msgstr "Hayvanlarımı gör"
+
+msgid "Create your pet family"
+msgstr "Patili aileni oluştur"
+
+msgid "THE PAWSOME MEMBERS OF YOUR FAMILY"
+msgstr "AİLENİN PATİLİ ÜYELERİ"
+
+msgid "My pets"
+msgstr "Hayvanlarım"
+
+#, python-format
+msgid ""
+"\n"
+"                        %(count)s profile\n"
+"                    "
+msgid_plural ""
+"\n"
+"                        %(count)s profiles\n"
+"                    "
+msgstr[0] ""
+"\n"
+"                        %(count)s profil\n"
+"                    "
+msgstr[1] ""
+"\n"
+"                        %(count)s profil\n"
+"                    "
+
+msgid "Add your first pet"
+msgstr "İlk patili dostunu ekle"
+
+msgid "Create a pet profile and keep all their details in one place."
+msgstr "Hayvan profilini oluştur ve tüm bilgilerini tek yerde tut."
+
+msgid "Add a pet"
+msgstr "Hayvan ekle"
+
+msgid "Bring your furry family together"
+msgstr "Patili aileni burada topla"
+
+msgid "Create your free account and keep your pets' profiles in one place."
+msgstr "Ücretsiz hesabını oluştur, dostlarının profillerini tek yerde tut."
+
+msgid "Sign up for free"
+msgstr "Ücretsiz kayıt ol"
+
+msgid "Already have an account?"
+msgstr "Zaten hesabın var mı?"
+
+msgid "Log in"
+msgstr "Giriş yap"
+
+msgid "PetOkra · Made with love for every paw."
+msgstr "PetOkra · Sevgiyle, her pati için."
+
+#: src/templates/partials/language_selector.html
+msgid "Language"
+msgstr "Dil"
+
+#: src/templates/register.html
+msgid "Sign up"
+msgstr "Kayıt ol"
+
+msgid "JOIN THE PAW FAMILY"
+msgstr "PATİLİ AİLENE KATIL"
+
+msgid "Create your account"
+msgstr "Hesabını oluştur"
+
+msgid "Keep your pets' information in one place."
+msgstr "Patili dostlarının bilgilerini tek yerde tut."
+
+msgid "Please check the fields below."
+msgstr "Lütfen alanları kontrol et."
+
+#: src/templates/login.html
+msgid "Create account"
+msgstr "Hesap oluştur"
+
+msgid "WELCOME BACK"
+msgstr "TEKRAR HOŞ GELDİN"
+
+msgid "Your furry friends are waiting for you."
+msgstr "Patili dostların seni bekliyor."
+
+msgid "Incorrect username or password."
+msgstr "Kullanıcı adı veya şifre hatalı."
+
+msgid "Don't have an account yet?"
+msgstr "Henüz hesabın yok mu?"

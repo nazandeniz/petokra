@@ -1,0 +1,96 @@
+
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PetOkra | {% trans "My Pets" %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="/">🐾 PetOkra</a>
+
+        {% include "partials/language_selector.html" %}
+
+        <form method="post" action="/cikis/">
+            {% csrf_token %}
+            <button type="submit">{% trans "Log out" %}</button>
+        </form>
+    </header>
+
+    <main class="pets-section">
+        <p class="eyebrow">{% trans "YOUR PERSONAL DASHBOARD" %}</p>
+
+        <h2>
+            {% blocktrans with username=request.user.username %}
+                Hello, {{ username }}!
+            {% endblocktrans %}
+        </h2>
+
+        <p>{% trans "Your pets' profiles are here." %}</p>
+
+        <section class="login-card">
+            <h2>{% trans "Add a new pet" %} 🐾</h2>
+            <p>{% trans "Enter your pet's details below." %}</p>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button class="primary-button" type="submit">
+                    {% trans "Save pet" %}
+                </button>
+            </form>
+        </section>
+
+        <div class="section-heading">
+            <h2>{% trans "My Pets" %}</h2>
+
+            <a class="primary-button" href="/">
+                {% trans "Back to home" %}
+            </a>
+        </div>
+
+        {% if pets %}
+            <div class="pet-grid">
+                {% for pet in pets %}
+                    <article class="pet-card">
+                        <div class="pet-avatar">
+                            {% if pet.species == "cat" %}
+                                🐱
+                            {% elif pet.species == "dog" %}
+                                🐶
+                            {% elif pet.species == "bird" %}
+                                🐦
+                            {% else %}
+                                🐾
+                            {% endif %}
+                        </div>
+
+                        <h3>{{ pet.name }}</h3>
+                        <p>{{ pet.get_species_display }}</p>
+
+                        {% if pet.breed %}
+                            <p>{{ pet.breed }}</p>
+                        {% endif %}
+
+                        {% if pet.birth_date %}
+                            <p>
+                                {% trans "Birth date" %}: {{ pet.birth_date|date:"M j, Y" }}
+                            </p>
+                        {% endif %}
+
+                        {% if pet.notes %}
+                            <p>{{ pet.notes }}</p>
+                        {% endif %}
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>{% trans "You haven't added a pet profile yet." %}</p>
+        {% endif %}
+    </main>
+</body>
+</html>

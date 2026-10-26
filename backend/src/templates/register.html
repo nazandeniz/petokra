@@ -1,0 +1,38 @@
+
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PetOkra | {% trans "Sign up" %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="/">🐾 PetOkra</a>
+        {% include "partials/language_selector.html" %}
+        <a class="login-link" href="/login/">{% trans "Log in" %}</a>
+    </header>
+
+    <main class="pets-section">
+        <div class="login-card">
+            <p class="eyebrow">{% trans "JOIN THE PAW FAMILY" %}</p>
+            <h2>{% trans "Create your account" %}</h2>
+            <p>{% trans "Keep your pets' information in one place." %}</p>
+
+            {% if form.errors %}
+                <p class="form-error">{% trans "Please check the fields below." %}</p>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="primary-button" type="submit">{% trans "Sign up" %}</button>
+            </form>
+
+            <p>{% trans "Already have an account?" %} <a href="/login/">{% trans "Log in" %}</a></p>
+        </div>
+    </main>
+</body>
+</html>
